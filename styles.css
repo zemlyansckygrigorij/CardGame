@@ -1,0 +1,56 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;/*выровнять вертикально*/
+  background: #060AB2;
+}
+
+.card-game {
+  width: 640px;
+  height: 640px;
+  margin: auto;/*выровнять вертикально*/
+  display: flex;  /*выровнять горизонтально*/
+  flex-wrap: wrap;/* элементы будут располагаться на нескольких строках в соответствии с их размерами*/
+  perspective: 1000px;/*3D-эффект переворота. Это свойство отвечает за расстояние между объектом 
+  и пользователем в z-плоскости. Чем ниже значение, тем сильнее эффект*/
+}
+
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;//абсолютно расположить наследников относительно родительского элемента
+  transform: scale(1);
+  transform-style: preserve-3d;/*поместить их в 3D-пространство, созданное в родителе, вместо того, чтобы ограничивать их плоскостью z = 0*/
+  transition: transform .5s;/*создать эффект движения:*/
+  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+}
+
+.memory-card:active {//при каждом нажатии на элемент
+  transform: scale(0.97);
+  transition: transform .2s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);/*класс flip переворачивает карточку на 180 градусов*/
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;/*уберёт элементы с их исходных позиций и разместит поверх друг друга:*/
+  border-radius: 5px;
+  background: #1C7CCC;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}

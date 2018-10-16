@@ -1,0 +1,1 @@
+игра сделана по аналогии с //https://vk.com/@tproger-card-game-vanilla-js
