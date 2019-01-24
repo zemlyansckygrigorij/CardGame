@@ -1,1 +1,1 @@
-игра сделана по аналогии с //https://vk.com/@tproger-card-game-vanilla-js
+this game is learn project for training skill for ECMAScript.
